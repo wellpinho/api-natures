@@ -1,11 +1,15 @@
+const fs = require('fs');
 const { Router } = require('express');
 const routes = Router();
+const tours = require('./../api/tours-simple.json');
 
-routes.get('/', (req, res) => {
+routes.get('/api/v1/tours', (req, res) => {
   return res.status(200).json({
-    message: 'Welcome',
-    app: 'Natures Rest API'
-  });
+    status: 'success',
+    data: {
+      tours
+    }
+  })
 });
 
 routes.get('/:id', (req, res) => {
